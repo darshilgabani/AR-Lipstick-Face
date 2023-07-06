@@ -66,7 +66,7 @@ dependencies {
 
 apply plugin: 'com.google.ar.sceneform.plugin'
 
-sceneform.asset('sampledata/models/tophat.fbx',     // 'Source Asset Path' specified during import.
+sceneform.asset('sampledata/models/paddleandball.fbx',     // 'Source Asset Path' specified during import.
         'default',                                  // 'Material Path' specified during import.
-        'sampledata/models/tophat.sfa',             // '.sfa Output Path' specified during import.
-        'src/main/assets/tophat')                   // '.sfb Output Path' specified during import.
+        'sampledata/models/paddleandball.sfa',             // '.sfa Output Path' specified during import.
+        'src/main/assets/paddleandball')                   // '.sfb Output Path' specified during import.

@@ -1,6 +1,7 @@
 package com.biz.facedetectionapp.ui.facedetection.landmark
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
@@ -89,11 +90,11 @@ class FaceLandmarkGraphic(
                     val bitmapHeight = bitmap?.height ?: 0
 
                     // Calculate the position to draw the bitmap
-                    val left = landmark.x - bitmapWidth / 2
-                    val top = landmark.y - bitmapHeight / 2
+                    val positionX = landmark.x - bitmapWidth / 2
+                    val positionY = landmark.y - bitmapHeight / 2
 
                     // Draw the bitmap
-                    canvas.drawBitmap(bitmap, left, top, null)
+                    canvas.drawBitmap(bitmap, positionX, positionY, null)
                 }
 
                 if (landmark == landmarks[6]){
@@ -102,11 +103,25 @@ class FaceLandmarkGraphic(
                     val bitmapHeight = bitmap?.height ?: 0
 
                     // Calculate the position to draw the bitmap
-                    val left = landmark.x - bitmapWidth / 2
-                    val top = landmark.y - bitmapHeight / 2
+                    val positionX = landmark.x - bitmapWidth / 2
+                    val positionY = landmark.y - bitmapHeight / 2
 
                     // Draw the bitmap
-                    canvas.drawBitmap(bitmap, left, top, null)
+                    canvas.drawBitmap(bitmap, positionX, positionY, null)
+                }
+
+                if (landmark == landmarks[3]){
+                    val bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.lips_teeth)
+                    val bitmapWidth = bitmap?.width ?: 0
+                    val bitmapHeight = bitmap?.height ?: 0
+
+                    // Calculate the position to draw the bitmap
+                    val lipPositionX = landmark.x - bitmapWidth / 2
+                    val lipPositionY = landmark.y - bitmapHeight
+
+                    // Draw the bitmap
+                    canvas.drawBitmap(bitmap, lipPositionX, lipPositionY, null)
+
                 }
             }
         }

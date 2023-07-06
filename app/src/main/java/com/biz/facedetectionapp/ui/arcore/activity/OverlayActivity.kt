@@ -208,6 +208,25 @@ class OverlayActivity : AppCompatActivity() {
                 modelRenderable.isShadowReceiver = false
             }
 
+        ModelRenderable.builder()
+            .setSource(this, Uri.parse("mycap.sfb"))
+            .build()
+            .thenAccept { modelRenderable ->
+                glasses.add(modelRenderable)
+                modelRenderable.isShadowCaster = false
+                modelRenderable.isShadowReceiver = false
+            }
+
+
+        ModelRenderable.builder()
+            .setSource(this, Uri.parse("paddleandball.sfb"))
+            .build()
+            .thenAccept { modelRenderable ->
+                glasses.add(modelRenderable)
+                modelRenderable.isShadowCaster = false
+                modelRenderable.isShadowReceiver = false
+            }
+
         Texture.builder()
             .setSource(this, R.drawable.lips_makeup)
             .build()
