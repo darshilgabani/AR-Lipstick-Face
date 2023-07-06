@@ -7,6 +7,7 @@ import com.biz.facedetectionapp.R
 import com.biz.facedetectionapp.databinding.ActivityFaceDetectionBinding
 import com.biz.facedetectionapp.ui.facedetection.contour.ContourActivity
 import com.biz.facedetectionapp.ui.facedetection.landmark.LandMarkActivity
+import com.biz.facedetectionapp.ui.facedetection.lipstick.LipstickActivity
 
 class FaceDetectionActivity : AppCompatActivity() {
 
@@ -29,6 +30,10 @@ class FaceDetectionActivity : AppCompatActivity() {
 
             landMarkButton.setOnClickListener {
                 startActivity(Intent(this@FaceDetectionActivity, LandMarkActivity::class.java))
+            }
+
+            lipstickButton.setOnClickListener {
+                startActivity(Intent(this@FaceDetectionActivity, LipstickActivity::class.java))
             }
         }
     }
