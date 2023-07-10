@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
@@ -142,6 +143,7 @@ class LipstickActivity : AppCompatActivity() {
             graphicOverlay.clear()
 
             faces.forEach {
+
                 val faceGraphic = LipstickGraphic(graphicOverlay, it, img.cropRect)
                 graphicOverlay.add(faceGraphic)
             }
