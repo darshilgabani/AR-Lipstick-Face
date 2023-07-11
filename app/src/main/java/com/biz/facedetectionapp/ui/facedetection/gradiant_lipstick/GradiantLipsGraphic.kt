@@ -1,44 +1,56 @@
-package com.biz.facedetectionapp.ui.facedetection.lipstick
+package com.biz.facedetectionapp.ui.facedetection.gradiant_lipstick
 
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.LinearGradient
 import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.Rect
+import android.graphics.Shader
 import com.google.mlkit.vision.face.Face
 import com.google.mlkit.vision.face.FaceContour
 
-class LipstickGraphic(
-    overlay: LipstickGraphicOverlay,
+class GradiantLipsGraphic(
+    overlay: GradiantLipsGraphicOverlay,
     private val face: Face,
     private val imageRect: Rect,
-    private val lipsColor : Int
-) : LipstickGraphicOverlay.Graphic(overlay) {
+    private val gradientColors: IntArray
+) : GradiantLipsGraphicOverlay.Graphic(overlay) {
     data class PointsDataClass(val px: Float, val py: Float)
-
-    companion object {
-        private const val CIRCLE_RADIUS = 4.0f
-        private const val BOX_STROKE_WIDTH = 5.0f
-    }
 
     private val upperLipPath: Path = Path()
     private val bottomLipPath: Path = Path()
 
-//    var lipsColor : Int = Color.parseColor("#a41313")
-    private val circleColor : Int = Color.WHITE
+    private val lipsColor: Int = Color.parseColor("#a41313")
+    private val circleColor: Int = Color.WHITE
 
-    private val lipsPaint : Paint = Paint().apply {
-        color = lipsColor
+//    private val gradientColors = intArrayOf(Color.parseColor("#A84441"), Color.parseColor("#41A84B"))
+//    private val gradientColors = intArrayOf(Color.BLACK, Color.WHITE,Color.RED)
+
+    private val lipsPaint: Paint = Paint().apply {
+
+//        shader = LinearGradient(
+//            upperLipFirstUtPx,
+//            upperLipFirstUtPy,
+//            bottomLipFirstLbPx,
+//            bottomLipFirstLbPy,
+//            gradientColors,
+//            null,
+//            Shader.TileMode.MIRROR
+//        )
+//        color = lipsColor
+
         style = Paint.Style.FILL
         strokeWidth = BOX_STROKE_WIDTH
     }
-    private val circlePaint : Paint = Paint().apply {
+
+    private val circlePaint: Paint = Paint().apply {
         color = circleColor
     }
 
     private var upperLipFirstUtPx: Float = 0f
     private var upperLipFirstUtPy: Float = 0f
-    
+
     private var bottomLipFirstLbPx: Float = 0f
     private var bottomLipFirstLbPy: Float = 0f
 
@@ -59,7 +71,7 @@ class LipstickGraphic(
 
     private var upperMiddleUbPx: Float = 0f
     private var upperMiddleUbPy: Float = 0f
-    
+
     private val upperLipArrayList: ArrayList<PointsDataClass> = ArrayList()
     private val bottomLipArrayList: ArrayList<PointsDataClass> = ArrayList()
 
@@ -67,7 +79,6 @@ class LipstickGraphic(
         face: Face,
         contourType: Int,
     ): Boolean {
-
 
         val faceContour = face.getContour(contourType)
 
@@ -119,7 +130,7 @@ class LipstickGraphic(
         return completed
     }
 
-    private fun getBottomLipsPoints(face: Face, contourType: Int) : Boolean {
+    private fun getBottomLipsPoints(face: Face, contourType: Int): Boolean {
 
         val faceContour = face.getContour(contourType)
 
@@ -131,7 +142,7 @@ class LipstickGraphic(
             val py = translateY(point.y)
 
 //            canvas?.drawCircle(px, py, CIRCLE_RADIUS, circlePaint)
-            
+
             if (contourType == FaceContour.LOWER_LIP_BOTTOM) {
                 val pointsDataClass = PointsDataClass(px, py)
                 bottomLipArrayList.add(pointsDataClass)
@@ -150,7 +161,7 @@ class LipstickGraphic(
                 bottomLipLastLbPx = px
                 bottomLipLastLbPy = py
             }
-            
+
             if (contourType == FaceContour.LOWER_LIP_TOP && index == faceContour.points.size - 1) {
                 bottomLipArrayList.add(PointsDataClass(bottomLipLastLbPx, bottomLipLastLbPy))
                 completed = true
@@ -185,7 +196,7 @@ class LipstickGraphic(
         }
 
         getBottomLipsPoints(face, FaceContour.LOWER_LIP_BOTTOM)
-        if(getBottomLipsPoints(face, FaceContour.LOWER_LIP_TOP)){
+        if (getBottomLipsPoints(face, FaceContour.LOWER_LIP_TOP)) {
             drawBottomLip(canvas)
         }
 
@@ -213,6 +224,18 @@ class LipstickGraphic(
                 bottomLipPath.close()
             }
 
+        }
+
+        lipsPaint.apply {
+            shader = LinearGradient(
+                bottomLipFirstLbPx,
+                0f,
+                bottomLipLastLbPx,
+                0f,
+                gradientColors,
+                null,
+                Shader.TileMode.MIRROR
+            )
         }
 
         canvas?.drawPath(bottomLipPath, lipsPaint)
@@ -243,7 +266,24 @@ class LipstickGraphic(
 
         }
 
+        lipsPaint.apply {
+            shader = LinearGradient(
+                upperLastUtPx,
+                0f,
+                upperLipFirstUtPx,
+                0f,
+                gradientColors,
+                null,
+                Shader.TileMode.MIRROR
+            )
+        }
+
         canvas?.drawPath(upperLipPath, lipsPaint)
+    }
+
+    companion object {
+        private const val CIRCLE_RADIUS = 4.0f
+        private const val BOX_STROKE_WIDTH = 5.0f
     }
 
 }

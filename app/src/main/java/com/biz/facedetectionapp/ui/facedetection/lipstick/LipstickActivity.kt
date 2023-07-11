@@ -3,9 +3,11 @@ package com.biz.facedetectionapp.ui.facedetection.lipstick
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
@@ -31,6 +33,10 @@ class LipstickActivity : AppCompatActivity() {
     private lateinit var cameraProvider: ProcessCameraProvider
 
     private lateinit var graphicOverlay: LipstickGraphicOverlay
+
+    private var lipsColor : Int? = Color.parseColor("#AE2320")
+
+    lateinit var faceGraphic: LipstickGraphic
 
     private var cameraSelectorOption = CameraSelector.DEFAULT_FRONT_CAMERA
 
@@ -58,15 +64,104 @@ class LipstickActivity : AppCompatActivity() {
     }
 
     private fun onClick() {
-        binding.cameraChangeBtn.setOnClickListener {
-            cameraSelectorOption =
-                if (cameraSelectorOption == CameraSelector.DEFAULT_FRONT_CAMERA) {
-                    CameraSelector.DEFAULT_BACK_CAMERA
-                } else {
-                    CameraSelector.DEFAULT_FRONT_CAMERA
-                }
-            graphicOverlay.toggleSelector()
-            startCamera()
+        binding.apply {
+            cameraChangeBtn.setOnClickListener {
+                cameraSelectorOption =
+                    if (cameraSelectorOption == CameraSelector.DEFAULT_FRONT_CAMERA) {
+                        CameraSelector.DEFAULT_BACK_CAMERA
+                    } else {
+                        CameraSelector.DEFAULT_FRONT_CAMERA
+                    }
+                graphicOverlay.toggleSelector()
+                startCamera()
+            }
+
+            scarletColor.setOnClickListener {
+                onColorSelect("scarletColor")
+            }
+
+            magentaColor.setOnClickListener {
+                onColorSelect("magentaColor")
+            }
+
+            claycrushColor.setOnClickListener {
+                onColorSelect("claycrushColor")
+            }
+
+            almondpinkColor.setOnClickListener {
+                onColorSelect("almondpinkColor")
+            }
+
+            bonappetitbabyColor.setOnClickListener {
+                onColorSelect("bonappetitbabyColor")
+            }
+
+            breakalegColor.setOnClickListener {
+                onColorSelect("breakalegColor")
+            }
+
+            itsadateColor.setOnClickListener {
+                onColorSelect("itsadateColor")
+            }
+
+            naileditColor.setOnClickListener {
+                onColorSelect("naileditColor")
+            }
+
+            peptalkColor.setOnClickListener {
+                onColorSelect("peptalkColor")
+            }
+
+            trafficjamminColor.setOnClickListener {
+                onColorSelect("trafficjamminColor")
+            }
+
+        }
+    }
+
+    private fun onColorSelect(gradiantType: String) {
+        val visibilityMap = mapOf(
+            "scarletColor" to View.VISIBLE,
+            "magentaColor" to View.VISIBLE,
+            "claycrushColor" to View.VISIBLE,
+            "almondpinkColor" to View.VISIBLE,
+            "bonappetitbabyColor" to View.VISIBLE,
+            "breakalegColor" to View.VISIBLE,
+            "itsadateColor" to View.VISIBLE,
+            "naileditColor" to View.VISIBLE,
+            "peptalkColor" to View.VISIBLE,
+            "trafficjamminColor" to View.VISIBLE,
+        )
+
+        val tickVisibility = visibilityMap.mapValues { View.GONE }.toMutableMap()
+        tickVisibility[gradiantType] = View.VISIBLE
+
+        val colorMap = mapOf(
+            "scarletColor" to Color.parseColor("#AE2320"),
+            "magentaColor" to Color.parseColor("#E90D53"),
+            "claycrushColor" to Color.parseColor("#D56A56"),
+            "almondpinkColor" to Color.parseColor("#BF5957"),
+            "bonappetitbabyColor" to Color.parseColor("#C4424A"),
+            "breakalegColor" to Color.parseColor("#9D4253"),
+            "itsadateColor" to Color.parseColor("#70213E"),
+            "naileditColor" to Color.parseColor("#672830"),
+            "peptalkColor" to Color.parseColor("#D14E76"),
+            "trafficjamminColor" to Color.parseColor("#A4516B"),
+        )
+
+        lipsColor = colorMap[gradiantType]!!
+
+        binding.apply {
+            scarletTick.visibility = tickVisibility["scarletColor"] ?: View.GONE
+            magentaTick.visibility = tickVisibility["magentaColor"] ?: View.GONE
+            claycrushTick.visibility = tickVisibility["claycrushColor"] ?: View.GONE
+            almondpinkTick.visibility = tickVisibility["almondpinkColor"] ?: View.GONE
+            bonappetitbabyTick.visibility = tickVisibility["bonappetitbabyColor"] ?: View.GONE
+            breakalegTick.visibility = tickVisibility["breakalegColor"] ?: View.GONE
+            itsadateTick.visibility = tickVisibility["itsadateColor"] ?: View.GONE
+            naileditTick.visibility = tickVisibility["naileditColor"] ?: View.GONE
+            peptalkTick.visibility = tickVisibility["peptalkColor"] ?: View.GONE
+            trafficjamminTick.visibility = tickVisibility["trafficjamminColor"] ?: View.GONE
         }
     }
 
@@ -144,7 +239,7 @@ class LipstickActivity : AppCompatActivity() {
 
             faces.forEach {
 
-                val faceGraphic = LipstickGraphic(graphicOverlay, it, img.cropRect)
+                faceGraphic = LipstickGraphic(graphicOverlay, it, img.cropRect,lipsColor!!)
                 graphicOverlay.add(faceGraphic)
             }
 

@@ -13,7 +13,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
     </androidx.camera.view.PreviewView>
 
@@ -21,15 +21,304 @@
         android:id="@+id/cameraChangeBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/previewView"
         app:srcCompat="@drawable/ic_switch_camera" />
 
     <com.biz.facedetectionapp.ui.facedetection.lipstick.LipstickGraphicOverlay
         android:id="@+id/graphicOverlay_finder"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:foregroundGravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/scarletColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/scarlet" />
+
+                <ImageView
+                    android:id="@+id/scarletTick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/scarletColor"
+                    android:layout_alignTop="@id/scarletColor"
+                    android:layout_alignEnd="@id/scarletColor"
+                    android:layout_alignBottom="@+id/scarletColor"
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/done" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:foregroundGravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/magentaColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/magenta" />
+
+                <ImageView
+                    android:id="@+id/magentaTick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/magentaColor"
+                    android:layout_alignTop="@id/magentaColor"
+                    android:layout_alignEnd="@id/magentaColor"
+                    android:layout_alignBottom="@+id/magentaColor"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/done" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:foregroundGravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/claycrushColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/claycrush" />
+
+                <ImageView
+                    android:id="@+id/claycrushTick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/claycrushColor"
+                    android:layout_alignTop="@id/claycrushColor"
+                    android:layout_alignEnd="@id/claycrushColor"
+                    android:layout_alignBottom="@+id/claycrushColor"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/done" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:foregroundGravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/almondpinkColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/claycrush" />
+
+                <ImageView
+                    android:id="@+id/almondpinkTick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/almondpinkColor"
+                    android:layout_alignTop="@id/almondpinkColor"
+                    android:layout_alignEnd="@id/almondpinkColor"
+                    android:layout_alignBottom="@+id/almondpinkColor"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/done" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:foregroundGravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/bonappetitbabyColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/bonappetitbaby" />
+
+                <ImageView
+                    android:id="@+id/bonappetitbabyTick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/bonappetitbabyColor"
+                    android:layout_alignTop="@id/bonappetitbabyColor"
+                    android:layout_alignEnd="@id/bonappetitbabyColor"
+                    android:layout_alignBottom="@+id/bonappetitbabyColor"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/done" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:foregroundGravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/breakalegColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/breakaleg" />
+
+                <ImageView
+                    android:id="@+id/breakalegTick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/breakalegColor"
+                    android:layout_alignTop="@id/breakalegColor"
+                    android:layout_alignEnd="@id/breakalegColor"
+                    android:layout_alignBottom="@+id/breakalegColor"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/done" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:foregroundGravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/itsadateColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/itsadate" />
+
+                <ImageView
+                    android:id="@+id/itsadateTick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/itsadateColor"
+                    android:layout_alignTop="@id/itsadateColor"
+                    android:layout_alignEnd="@id/itsadateColor"
+                    android:layout_alignBottom="@+id/itsadateColor"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/done" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:foregroundGravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/naileditColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/nailedit" />
+
+                <ImageView
+                    android:id="@+id/naileditTick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/naileditColor"
+                    android:layout_alignTop="@id/naileditColor"
+                    android:layout_alignEnd="@id/naileditColor"
+                    android:layout_alignBottom="@+id/naileditColor"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/done" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:foregroundGravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/peptalkColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/peptalk" />
+
+                <ImageView
+                    android:id="@+id/peptalkTick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/peptalkColor"
+                    android:layout_alignTop="@id/peptalkColor"
+                    android:layout_alignEnd="@id/peptalkColor"
+                    android:layout_alignBottom="@+id/peptalkColor"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/done" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:foregroundGravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/trafficjamminColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/trafficjammin" />
+
+                <ImageView
+                    android:id="@+id/trafficjamminTick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/trafficjamminColor"
+                    android:layout_alignTop="@id/trafficjamminColor"
+                    android:layout_alignEnd="@id/trafficjamminColor"
+                    android:layout_alignBottom="@+id/trafficjamminColor"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/done" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

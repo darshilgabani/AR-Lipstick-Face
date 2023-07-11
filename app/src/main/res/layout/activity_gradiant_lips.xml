@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.facedetection.gradiant_lipstick.GradiantLipsActivity">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+    </androidx.camera.view.PreviewView>
+
+    <ImageView
+        android:id="@+id/cameraChangeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/previewView"
+        app:srcCompat="@drawable/ic_switch_camera" />
+
+    <com.biz.facedetectionapp.ui.facedetection.gradiant_lipstick.GradiantLipsGraphicOverlay
+        android:id="@+id/graphicOverlay_finder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:foregroundGravity="center">
+
+            <ImageView
+                android:id="@+id/eveningColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/evening" />
+
+            <ImageView
+                android:id="@+id/eveningTick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_alignBottom="@+id/eveningColor"
+                android:layout_alignTop="@id/eveningColor"
+                android:layout_alignEnd="@id/eveningColor"
+                android:layout_alignStart="@id/eveningColor"
+                app:srcCompat="@drawable/done" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:foregroundGravity="center">
+
+            <ImageView
+                android:id="@+id/gradegreyColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/gradegrey" />
+
+            <ImageView
+                android:id="@+id/gradegreyTick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:layout_alignBottom="@+id/gradegreyColor"
+                android:layout_alignTop="@id/gradegreyColor"
+                android:layout_alignEnd="@id/gradegreyColor"
+                android:layout_alignStart="@id/gradegreyColor"
+                app:srcCompat="@drawable/done" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:foregroundGravity="center">
+
+            <ImageView
+                android:id="@+id/harveyColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/harvey" />
+
+            <ImageView
+                android:id="@+id/harveyTick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:layout_alignBottom="@+id/harveyColor"
+                android:layout_alignTop="@id/harveyColor"
+                android:layout_alignEnd="@id/harveyColor"
+                android:layout_alignStart="@id/harveyColor"
+                app:srcCompat="@drawable/done" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:foregroundGravity="center">
+
+            <ImageView
+                android:id="@+id/jshineColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/jshine" />
+
+            <ImageView
+                android:id="@+id/jshineTick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:layout_alignBottom="@+id/jshineColor"
+                android:layout_alignTop="@id/jshineColor"
+                android:layout_alignEnd="@id/jshineColor"
+                android:layout_alignStart="@id/jshineColor"
+                app:srcCompat="@drawable/done" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:foregroundGravity="center">
+
+            <ImageView
+                android:id="@+id/magicColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/magic" />
+
+            <ImageView
+                android:id="@+id/magicTick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:layout_alignBottom="@+id/magicColor"
+                android:layout_alignTop="@id/magicColor"
+                android:layout_alignEnd="@id/magicColor"
+                android:layout_alignStart="@id/magicColor"
+                app:srcCompat="@drawable/done" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:foregroundGravity="center">
+
+            <ImageView
+                android:id="@+id/metapolisColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/metapolis" />
+
+            <ImageView
+                android:id="@+id/metapolisTick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:layout_alignBottom="@+id/metapolisColor"
+                android:layout_alignTop="@id/metapolisColor"
+                android:layout_alignEnd="@id/metapolisColor"
+                android:layout_alignStart="@id/metapolisColor"
+                app:srcCompat="@drawable/done" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:foregroundGravity="center">
+
+            <ImageView
+                android:id="@+id/sulphurColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/sulphur" />
+
+            <ImageView
+                android:id="@+id/sulphurTick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:layout_alignBottom="@+id/sulphurColor"
+                android:layout_alignTop="@id/sulphurColor"
+                android:layout_alignEnd="@id/sulphurColor"
+                android:layout_alignStart="@id/sulphurColor"
+                app:srcCompat="@drawable/done" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:foregroundGravity="center">
+
+            <ImageView
+                android:id="@+id/witchingColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/witching" />
+
+            <ImageView
+                android:id="@+id/witchingTick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:layout_alignBottom="@+id/witchingColor"
+                android:layout_alignTop="@id/witchingColor"
+                android:layout_alignEnd="@id/witchingColor"
+                android:layout_alignStart="@id/witchingColor"
+                app:srcCompat="@drawable/done" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    </HorizontalScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

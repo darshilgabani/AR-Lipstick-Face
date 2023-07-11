@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.biz.facedetectionapp.R
 import com.biz.facedetectionapp.databinding.ActivityFaceDetectionBinding
 import com.biz.facedetectionapp.ui.facedetection.contour.ContourActivity
+import com.biz.facedetectionapp.ui.facedetection.gradiant_lipstick.GradiantLipsActivity
 import com.biz.facedetectionapp.ui.facedetection.landmark.LandMarkActivity
 import com.biz.facedetectionapp.ui.facedetection.lipstick.LipstickActivity
 
@@ -34,6 +35,10 @@ class FaceDetectionActivity : AppCompatActivity() {
 
             lipstickButton.setOnClickListener {
                 startActivity(Intent(this@FaceDetectionActivity, LipstickActivity::class.java))
+            }
+
+            gradiantLipsButton.setOnClickListener {
+                startActivity(Intent(this@FaceDetectionActivity, GradiantLipsActivity::class.java))
             }
         }
     }
