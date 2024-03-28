@@ -2,7 +2,6 @@ package com.biz.facedetectionapp.ui.facedetection.gradiant_lipstick
 
 import android.content.Context
 import android.content.res.Configuration
-import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Rect
 import android.graphics.RectF
@@ -20,10 +19,7 @@ open class GradiantLipsGraphicOverlay(context: Context?, attrs: AttributeSet?) :
     var mOffsetX: Float? = null
     var mOffsetY: Float? = null
 
-    var cameraSelector: Int = CameraSelector.LENS_FACING_FRONT
-
-    private lateinit var processBitmap: Bitmap
-    private lateinit var processCanvas: Canvas
+    private var cameraSelector: Int = CameraSelector.LENS_FACING_FRONT
 
     abstract class Graphic(private val overlay: GradiantLipsGraphicOverlay) {
 
@@ -127,7 +123,7 @@ open class GradiantLipsGraphicOverlay(context: Context?, attrs: AttributeSet?) :
         }
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
         synchronized(lock) {

@@ -118,7 +118,7 @@ open class GraphicOverlay(context: Context?, attrs: AttributeSet?) : View(contex
     }
 
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
             graphics.forEach {
                 it.draw(canvas)

@@ -21,25 +21,9 @@ class GradiantLipsGraphic(
     private val upperLipPath: Path = Path()
     private val bottomLipPath: Path = Path()
 
-    private val lipsColor: Int = Color.parseColor("#a41313")
     private val circleColor: Int = Color.WHITE
 
-//    private val gradientColors = intArrayOf(Color.parseColor("#A84441"), Color.parseColor("#41A84B"))
-//    private val gradientColors = intArrayOf(Color.BLACK, Color.WHITE,Color.RED)
-
     private val lipsPaint: Paint = Paint().apply {
-
-//        shader = LinearGradient(
-//            upperLipFirstUtPx,
-//            upperLipFirstUtPy,
-//            bottomLipFirstLbPx,
-//            bottomLipFirstLbPy,
-//            gradientColors,
-//            null,
-//            Shader.TileMode.MIRROR
-//        )
-//        color = lipsColor
-
         style = Paint.Style.FILL
         strokeWidth = BOX_STROKE_WIDTH
     }

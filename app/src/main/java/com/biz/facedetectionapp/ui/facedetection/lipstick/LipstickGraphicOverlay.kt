@@ -127,7 +127,7 @@ open class LipstickGraphicOverlay(context: Context?, attrs: AttributeSet?) : Vie
         }
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
         synchronized(lock) {

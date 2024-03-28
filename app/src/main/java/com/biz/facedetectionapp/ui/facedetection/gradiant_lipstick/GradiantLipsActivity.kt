@@ -226,9 +226,7 @@ class GradiantLipsActivity : AppCompatActivity() {
             graphicOverlay.clear()
 
             faces.forEach {
-
-                val faceGraphic =
-                    GradiantLipsGraphic(graphicOverlay, it, img.cropRect, gradientColors)
+                val faceGraphic = GradiantLipsGraphic(graphicOverlay, it, img.cropRect, gradientColors)
                 graphicOverlay.add(faceGraphic)
             }
 

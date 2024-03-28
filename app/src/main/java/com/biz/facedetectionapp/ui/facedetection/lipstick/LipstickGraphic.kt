@@ -24,7 +24,6 @@ class LipstickGraphic(
     private val upperLipPath: Path = Path()
     private val bottomLipPath: Path = Path()
 
-//    var lipsColor : Int = Color.parseColor("#a41313")
     private val circleColor : Int = Color.WHITE
 
     private val lipsPaint : Paint = Paint().apply {
@@ -67,7 +66,6 @@ class LipstickGraphic(
         face: Face,
         contourType: Int,
     ): Boolean {
-
 
         val faceContour = face.getContour(contourType)
 
